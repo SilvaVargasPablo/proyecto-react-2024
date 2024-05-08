@@ -1,8 +1,10 @@
+import { useEffect } from "react"
 
 function App() {
-  
+
   return (
-    <h1>Hola</h1>
+    useEffect(() =>{}, [])
+    <h1>Lista de criptomonedas</h1>
   )
 }
 
