@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { useEffect } from "react"
+import "./App.css"
 import axios from "axios"
 import Cripto from "./Cripto"
 
@@ -23,7 +24,7 @@ function App() {
   if (!criptos) return <span> Cargando...</span>
 
   return (
-    <div className="main-container">
+    <div className="app-container">
       <h1> Lista de criptomonedas </h1>
       <div className="cripto-container">     
         { 
