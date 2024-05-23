@@ -30,7 +30,15 @@ function Cuadricula() {
       <div className="cripto-container">     
         { 
           criptos.map(({id, symbol, changePercent24Hr, name, priceUsd, rank}) => ( 
-            <Cripto key={id} rank={rank} symbol={symbol} changePercent24Hr={changePercent24Hr} name={name} priceUsd={priceUsd}  />
+            <Cripto 
+            key={id} 
+            rank={rank} 
+            symbol={symbol} 
+            changePercent24Hr={changePercent24Hr} 
+            name={name} 
+            priceUsd={priceUsd}
+            id={id}
+            />
           )) 
         }
       </div> 
