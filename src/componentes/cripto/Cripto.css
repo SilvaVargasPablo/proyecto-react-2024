@@ -6,6 +6,10 @@
     padding: 1rem;
 }
 
+.precio{
+    color: rgb(197, 197, 20);
+}
+
 .info{
     color: rgb(213, 213, 213);
 }
@@ -16,7 +20,6 @@
 
 .positivo{
     color: rgb(7, 191, 7);
-    
 }
 
 .negativo{
