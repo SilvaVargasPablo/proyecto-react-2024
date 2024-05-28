@@ -3,7 +3,7 @@ import"./Cripto.css"
 
 const Cripto = ({id, name, symbol, changePercent24Hr, priceUsd, rank}) => {
   return(
-    <Link to={`/criptomonedas/${id}`}>
+   
     <div className="cripto">
       <h2>{name}</h2>
       <div className="info">
@@ -17,10 +17,10 @@ const Cripto = ({id, name, symbol, changePercent24Hr, priceUsd, rank}) => {
           {parseFloat (changePercent24Hr).toFixed(3)}%
           </span>
         </p>
-        
+        <Link to={`/criptomonedas/${id}`}>Ver detalles </Link>
       </div>    
     </div>
-    </Link>
+    
   )
 }
 

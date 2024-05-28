@@ -3,7 +3,6 @@ import { useEffect } from "react"
 import "./Cuadricula.css"
 import axios from "axios"
 import Cripto from "./cripto/Cripto"
-import Menu from "./menu/Menu"
 
 function Cuadricula() {
 
