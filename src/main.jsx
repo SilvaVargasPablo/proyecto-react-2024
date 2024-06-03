@@ -7,13 +7,17 @@ import "./main.css"
 import Cuadricula from './componentes/Cuadricula'
 import Home from './Home'
 import CriptoPage from './componentes/cripto/CriptoPage'
+import { UserContextProvider } from './context/UserContext'
+import Perfil from './perfil'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
 
-    <BrowserRouter>
+ <UserContextProvider>
+     <BrowserRouter>
       <Routes> 
         <Route path='/' element={<App/>}>
           <Route index element={<Home/>}/>
+          <Route path='perfil' element= {<Perfil/>}/>
         </Route>
 
         <Route path='criptomonedas' element={<App/>}>
@@ -26,4 +30,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       </Routes>
     </BrowserRouter>
 
+ </UserContextProvider>
 )

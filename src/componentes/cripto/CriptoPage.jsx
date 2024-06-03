@@ -1,60 +1,23 @@
-import axios from "axios"
-import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import "./CriptoPage.css"
+import usePetition from "../../hooks/usePetition"
+import CriptoInfo from "./info/CriptoInfo"
+import CriptoHistory from "./info/CriptoHistorial"
 
 const CriptoPage = () => {
 
-  const API_URL = import.meta.env.VITE_API_URL
   const params = useParams()
 
-  const [cripto, setCripto] = useState({})
-  const [history, setHistory] = useState([])
+  const [cripto, cargandoCripto ]= usePetition(`assets/${params.id}`)
+  const [history, cargandoHistory] = usePetition(`assets/${params.id}/history?interval=d1`)
 
-  useEffect(() => {
-    axios.get(`${API_URL}assets/${params.id}`)
-    .then(data => {
-      setCripto(data.data.data)
-    })
-    .catch(e =>console.error(e))
-  }, [])
+  if (cargandoCripto || cargandoHistory) return <span>Cargando...</span>
 
-  useEffect(() => {
-    axios.get(`${API_URL}assets/${params.id}/history?interval=d1`)
-    .then(data => {
-      setHistory(data.data.data)
-    })
-    .catch(e =>console.error(e))
-  }, [])
-
-  return(
-    <>
-      <h1>{params.id}</h1>
-      <div className="info">
-        <ul>
-          <li><span className="label">Nombre</span> {cripto.name}</li>
-          <li><span className="label">Símbolo</span> {cripto.symbol}</li>
-        </ul>
-      </div>
-      <h2>Historial</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Fecha</th>
-            <th>Precio</th>
-          </tr>
-        </thead>
-        <tbody>
-          {
-            history.map(({ date, priceUsd, time}) => (
-              <tr key={time}>
-                <td>{date}</td>
-                <td>{priceUsd}</td>
-              </tr>
-            ))
-          }
-        </tbody>
-      </table>
-    </>
+  return (
+    <div className="cripto-page-container">
+      {cripto && <CriptoInfo cripto={cripto}/>}
+      {history && <CriptoHistory history={history}/>}
+    </div>  
   )
 }
 
