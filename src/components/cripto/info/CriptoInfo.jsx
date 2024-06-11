@@ -1,7 +1,7 @@
-import {parseFloatNumber} from"../../../helpers/numbers"
+import { parseFloatNumber } from "../../../helpers/numbers"
 
-const CriptoInfo = ({cripto}) => {
- return(
+const CriptoInfo = ({ cripto }) => {
+  return (
     <div className="info">
       <div className="main-info">
         <span>Ranking: {cripto.rank}</span>
@@ -22,22 +22,22 @@ const CriptoInfo = ({cripto}) => {
             <span className="label">Market Cap (USD): </span>
             <span>{parseFloatNumber(cripto.marketCapUsd, 3)}</span>
           </li>
-        <li className="detail">
-          <span className="label">Volumen (USD - 24 Hrs.): </span>
-          <span>{parseFloatNumber(cripto.volumeUsd24Hr, 3)}</span>
-        </li>
-        <li className="detail">
-          <span className="label">Variacion (24 Hrs.): </span>
-          <span>{parseFloatNumber(cripto.changePercent24Hr, 3)}</span>
-        </li>
-        <li className="detail">
-          <span className="label">Vwrap 24 Hrs.: </span>
-          <span>{parseFloatNumber(cripto.vwrap24Hr, 3)}</span>
-        </li>
-      </ul>
+          <li className="detail">
+            <span className="label">Volumen (USD - 24 Hrs.): </span>
+            <span>{parseFloatNumber(cripto.volumeUsd24Hr, 3)}</span>
+          </li>
+          <li className="detail">
+            <span className="label">Variación (24 Hrs.): </span>
+            <span>{parseFloatNumber(cripto.changePercent24Hr, 3)}</span>
+          </li>
+          <li className="detail">
+            <span className="label">Vwap 24 Hrs.: </span>
+            <span>{parseFloatNumber(cripto.vwap24Hr, 3)}</span>
+          </li>
+        </ul>
+      </div>
     </div>
-</div>
- )
+  )
 }
 
 export default CriptoInfo
